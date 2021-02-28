@@ -92,6 +92,11 @@ const learnRoutes = [
     destination: '/blog/handling-copy-and-paste-in-cypress',
     permanent: true,
   },
+  {
+    source: `/learn/javascript/improve-performance-with-the-object-pool-design-pattern-in-javascript`,
+    destination: '/blog/object-pool-design-pattern',
+    permanent: true,
+  },
 ]
 
 const instructorRoutes = [
