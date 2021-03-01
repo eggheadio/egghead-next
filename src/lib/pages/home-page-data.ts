@@ -23,7 +23,7 @@ const jumbotronQuery = groq`
   title,
   description,
   summary,
-  byline, 
+  byline,
   meta,
   path,
   'slug': resources[][0]->_id,
