@@ -384,26 +384,14 @@ const CollectionPageLayout: React.FunctionComponent<CoursePageLayoutProps> = ({
                   />
                 </div>
               )}
-              <div className="mt-4 md:mt-12">
+              <div className="mt-4 md:mt-10">
                 <div className="flex">
                   {get(course, 'free_forever') ? (
-                    <div className="flex flex-row text-sm font-semibold leading-loose text-center px-4 py-1 rounded-3xl bg-amber-600 text-white uppercase mb-3 tracking-wide space-x-5 items-center">
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        className="h-4 w-4 mr-2"
-                        viewBox="0 0 20 20"
-                        fill="currentColor"
-                      >
-                        <path
-                          fillRule="evenodd"
-                          d="M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2zm8-2v2H7V7a3 3 0 016 0z"
-                          clipRule="evenodd"
-                        />
-                      </svg>
+                    <div className="flex flex-row text-sm font-semibold leading-loose text-center px-3 py-0 rounded-3xl border border-blue-300 text-blue-500 uppercase mb-2 tracking-wide space-x-5 items-center">
                       Free
                     </div>
                   ) : (
-                    <div className="flex flex-row text-sm font-semibold leading-loose text-center px-4 py-1 rounded-3xl bg-lightblue text-white uppercase mb-3 tracking-wide space-x-5 items-center">
+                    <div className="flex flex-row text-sm font-semibold leading-loose text-center px-3 py-0 rounded-3xl border border-blue-300 text-blue-500 uppercase mb-2 tracking-wide space-x-5 items-center">
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
                         className="h-4 w-4 mr-2"
@@ -439,7 +427,7 @@ const CollectionPageLayout: React.FunctionComponent<CoursePageLayoutProps> = ({
                 </h1>
               </div>
 
-              <div className="mt-4 flex flex-col items-center md:items-start">
+              <div className="mt-6 flex flex-col items-center md:items-start">
                 {instructor && (
                   <InstructorProfile
                     name={name}
@@ -449,7 +437,7 @@ const CollectionPageLayout: React.FunctionComponent<CoursePageLayoutProps> = ({
                     twitter={twitter}
                   />
                 )}
-                <div className="flex items-center flex-col md:flex-row flex-wrap">
+                <div className="flex items-center flex-col md:flex-row flex-wrap mt-3">
                   <TagList tags={courseTags} courseSlug={course.slug} />
                   <div className="flex items-center md:justify-start justify-center md:mr-4 mt-4">
                     {duration && (
@@ -463,7 +451,7 @@ const CollectionPageLayout: React.FunctionComponent<CoursePageLayoutProps> = ({
                   </div>
                 </div>
               </div>
-              <div className="flex flex-col md:flex-row items-center md:justify-start justify-center mt-4 space-y-4 md:space-y-0 md:space-x-6 w-full">
+              <div className="flex flex-col md:flex-row items-center md:justify-start justify-center mt-2 space-y-4 md:space-y-0 md:space-x-6 w-full">
                 <div className="flex flex-col sm:flex-row items-center space-y-3 sm:space-y-0 sm:space-x-4 sm:flex-nowrap">
                   {average_rating_out_of_5 > 0 && (
                     <StarsRating rating={average_rating_out_of_5} />
@@ -555,7 +543,7 @@ const CollectionPageLayout: React.FunctionComponent<CoursePageLayoutProps> = ({
               <div className="md:hidden flex items-center justify-center w-full mt-5">
                 <PlayButton lesson={nextLesson} />
               </div>
-              <Markdown className="prose dark:prose-dark md:prose-lg md:dark:prose-lg-dark text-gray-900 dark:text-gray-100 mt-20 mb-6">
+              <Markdown className="prose dark:prose-dark md:prose-lg md:dark:prose-lg-dark text-gray-900 dark:text-gray-100 mt-24 mb-6">
                 {description}
               </Markdown>
               <div className="pt-5 md:hidden block">
