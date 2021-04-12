@@ -92,11 +92,87 @@ const Home: FunctionComponent<any> = ({sections}) => {
 
   return (
     <>
-      <div className="lg:space-y-6 space-y-4">
+      <section className="mt-6">
+        <h2 className="md:text-xl text-lg sm:font-semibold font-bold mb-3">
+          What's New
+        </h2>
         <Jumbotron resource={jumbotron} />
-        <section className="">
-          <TopicsList topics={topics} />
-        </section>
+        <div className="grid grid-cols-12 grid-rows-3 gap-4">
+          <div className="bg-gray-200 w-full h-auto row-span-2 col-span-7" />
+          <div className="bg-gray-200 w-full h-auto row-span-2 col-span-5" />
+          <div className="bg-gray-200 w-full h-40 row-span-1 col-span-4" />
+          <div className="bg-gray-200 w-full h-40 row-span-1 col-span-4" />
+          <div className="bg-gray-200 w-full h-40 row-span-1 col-span-4" />
+        </div>
+      </section>
+
+      <section className="mt-24">
+        <h2 className="text-center md:text-xl text-lg sm:font-semibold font-bold leading-tight mb-2">
+          Our Curated Guides
+        </h2>
+        <p className="text-center  mb-6">
+          Discover the best content on cutting-edge technologies
+        </p>
+        <TopicsList topics={topics} />
+      </section>
+
+      <section className="mt-32 grid md:grid-cols-10 grid-cols-1 gap-5">
+        <div className="md:col-span-3 col-span-1 flex flex-col">
+          <h2 className="md:text-3xl text-2xl dark:text-gray-200 font-bold leading-tight mb-10">
+            Digital Gardening for Developers
+          </h2>
+          <div className="flex-shrink-0">
+            <Image
+              src={
+                'https://res.cloudinary.com/dg3gyk0gu/image/upload/v1617475003/egghead-next-pages/home-page/eggo-gardening.png'
+              }
+              alt="illustration for Digital Gardening for Developers "
+              width={232}
+              height={283}
+              quality={100}
+            />
+          </div>
+        </div>
+        <div className="md:col-span-7 col-span-1">
+          <div className="leading-relaxed text-gray-700 dark:text-gray-50 space-y-6">
+            <p>
+              Success in software development requires deeply layered,
+              high-value communication. If you are serious about making an
+              impact in your coding career, you should get good at writing words
+              as well as code. This an agreed-upon quality for developers. And
+              it all starts with having your own digital garden.
+            </p>
+            <p className="font-semibold">
+              "The phrase <i>digital garden</i> is a metaphor for thinking about
+              writing and creating that focuses less on the resulting{' '}
+              <i>showpiece</i> and more on the process, care, and craft it takes
+              to get there." &mdash;{' '}
+              <a
+                className="text-blue-600"
+                href="https://joelhooks.com/digital-garden"
+              >
+                Joel Hooks
+              </a>
+            </p>
+          </div>
+          <div className="grid md:grid-cols-12 grid-cols-2 gap-5 mt-8">
+            {featureCallOut.resources.map((resource: any) => {
+              return (
+                <Card
+                  className="col-span-4 text-center"
+                  key={resource.path}
+                  resource={resource}
+                  location={location}
+                />
+              )
+            })}
+          </div>
+        </div>
+      </section>
+
+      {/*  */}
+
+      <div className="lg:space-y-6 space-y-4">
         <section className="grid lg:grid-cols-8 grid-cols-1 lg:gap-6 gap-4">
           <FeaturedVideoCard video={video} />
           <EventSchedule />

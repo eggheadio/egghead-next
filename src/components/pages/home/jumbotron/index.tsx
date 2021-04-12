@@ -23,7 +23,7 @@ const Jumbotron: FunctionComponent<JumbotronProps> = ({resource}) => {
   } = resource
   return (
     <div
-      className="md:-mt-5 relative flex items-center justify-center bg-gray-900 dark:bg-gray-800 text-white overflow-hidden rounded-b-lg md:rounded-t-none rounded-t-lg shadow-sm"
+      className="relative flex items-center justify-center bg-gray-900 dark:bg-gray-800 text-white overflow-hidden rounded-lg shadow-sm"
       css={{
         [bpMinMD]: {
           minHeight: 477,
