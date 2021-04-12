@@ -384,22 +384,61 @@ const CollectionPageLayout: React.FunctionComponent<CoursePageLayoutProps> = ({
                   />
                 </div>
               )}
-              {moduleResource && (
-                <h1 className="text-base leading-loose text-center mt-4 -mb-4 md:mb-0 md:mt-0 md:text-left">
-                  <Link href={multiModuleSlug}>
-                    <a>
-                      <span className="text-gray-700 dark:text-gray-400 hover:underline">
-                        {multiModuletitle && multiModuletitle}
-                      </span>
-                    </a>
-                  </Link>
-                  {' • '}
-                  <span className="font-semibold">Part {moduleLabel}</span>
+              <div className="mt-4 md:mt-12">
+                <div className="flex">
+                  {get(course, 'free_forever') ? (
+                    <div className="flex flex-row text-sm font-semibold leading-loose text-center px-4 py-1 rounded-3xl bg-amber-600 text-white uppercase mb-3 tracking-wide space-x-5 items-center">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        className="h-4 w-4 mr-2"
+                        viewBox="0 0 20 20"
+                        fill="currentColor"
+                      >
+                        <path
+                          fillRule="evenodd"
+                          d="M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2zm8-2v2H7V7a3 3 0 016 0z"
+                          clipRule="evenodd"
+                        />
+                      </svg>
+                      Free
+                    </div>
+                  ) : (
+                    <div className="flex flex-row text-sm font-semibold leading-loose text-center px-4 py-1 rounded-3xl bg-lightblue text-white uppercase mb-3 tracking-wide space-x-5 items-center">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        className="h-4 w-4 mr-2"
+                        viewBox="0 0 20 20"
+                        fill="currentColor"
+                      >
+                        <path
+                          fillRule="evenodd"
+                          d="M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2zm8-2v2H7V7a3 3 0 016 0z"
+                          clipRule="evenodd"
+                        />
+                      </svg>
+                      For Members
+                    </div>
+                  )}
+                  {moduleResource && (
+                    <h1 className="text-base leading-loose text-center mt-4">
+                      <Link href={multiModuleSlug}>
+                        <a>
+                          <span className="text-gray-700 dark:text-gray-400 hover:underline">
+                            {multiModuletitle && multiModuletitle}
+                          </span>
+                        </a>
+                      </Link>
+                      {' • '}
+                      <span className="font-semibold">Part {moduleLabel}</span>
+                    </h1>
+                  )}
+                </div>
+
+                <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold leading-tight md:text-left text-center">
+                  {title}
                 </h1>
-              )}
-              <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold leading-tight md:text-left text-center mt-4 md:mt-12">
-                {title}
-              </h1>
+              </div>
+
               <div className="mt-4 flex flex-col items-center md:items-start">
                 {instructor && (
                   <InstructorProfile
