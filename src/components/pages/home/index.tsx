@@ -172,16 +172,82 @@ const Home: FunctionComponent<any> = ({sections}) => {
 
       {/*  */}
 
-      <div className="lg:space-y-6 space-y-4">
-        <section className="grid lg:grid-cols-8 grid-cols-1 lg:gap-6 gap-4">
+      <section className="mt-32">
+        <div className="flex justify-between align-text-top">
+          <h2 className="md:text-xl text-lg sm:font-semibold font-bold mb-3">
+            Livestreams, Talks, and Events
+          </h2>
+          <a
+            href="#"
+            className="inline-flex justify-center items-center text-center px-3 rounded-md  sm:text-sm text-xs border border-gray-300 text-gray-500 transition-all ease-in-out duration-200 mb-3"
+          >
+            Browse all Talks
+          </a>
+        </div>
+        <div className="grid lg:grid-cols-8 grid-cols-1 lg:gap-6 gap-4">
           <FeaturedVideoCard video={video} />
           <EventSchedule />
-        </section>
+        </div>
+      </section>
+
+      <section className="mt-32">
+        <div className="grid grid-cols-3 gap-4">
+          <CardVerticalWithStack className="sm:py-3 py-2" data={getStarted} />
+          <CardVerticalWithStack data={aws} />
+          <CardVerticalWithStack data={freeCourses} memberTitle="Must Watch" />
+        </div>
+      </section>
+
+      <section className="mt-32">
+        <div className="flex justify-between align-text-top">
+          <h2 className="md:text-xl text-lg sm:font-semibold font-bold mb-3">
+            Staff Favourites and Special Collections
+          </h2>
+        </div>
+        <div className="grid grid-cols-3 gap-4">
+          <Card resource={tailwind} className="text-center">
+            <ol className="text-left">
+              {tailwind.resources.map((resource: any, index: any) => {
+                return (
+                  <li key={resource.path} className="flex space-x-2 my-2">
+                    <span>{index + 1}</span>
+                    <Link href={resource.path}>
+                      <a className="font-bold hover:text-blue-600 dark:hover:text-blue-300">
+                        {resource.title}
+                      </a>
+                    </Link>
+                  </li>
+                )
+              })}
+            </ol>
+          </Card>
+
+          <ReactStateManagement />
+
+          <div className="flex flex-col space-y-4">
+            <Card resource={accessibleApps} className="h-full text-center">
+              <Collection />
+            </Card>
+            <Card resource={accessibleReactApps} className="h-full text-center">
+              <Collection />
+            </Card>
+          </div>
+        </div>
+        <div className="grid grid-cols-2 gap-4">
+          <CardHorizontal resource={wordpressWithGraphql} />
+          <CardHorizontal resource={projectFeatureCardVideoApp} />
+        </div>
+      </section>
+
+      <section className="mt-32">
+        <CardHorizontal resource={ecommerce} />
+        <CardVerticalWithStack data={devEssentials} />
+        <CardHorizontal resource={portfolioProject} />
+      </section>
+
+      <div className="lg:space-y-6 space-y-4">
         <section className="grid lg:grid-cols-12 grid-cols-1 lg:gap-6 gap-4">
           <div className="lg:col-span-8 lg:space-y-6 space-y-4">
-            {currentCourse && (
-              <InProgressCollection collection={currentCourse} />
-            )}
             <div
               className={`grid sm:grid-cols-${featured.length} grid-cols-2 sm:gap-5 gap-3`}
             >
@@ -191,63 +257,6 @@ const Home: FunctionComponent<any> = ({sections}) => {
             </div>
 
             <CardHorizontal resource={modernLayoutsWithCSSGrid} />
-
-            <section className="md:mt-20 mt-5 grid lg:grid-cols-12 grid-cols-1 gap-5 md:bg-gray-100 dark:bg-gray-700 rounded-lg md:p-5">
-              <div className="col-span-12 space-y-5">
-                <header className="py-5 md:px-8 px-5 rounded-md flex md:flex-row flex-col md:text-left text-center md:space-y-0 space-y-3 md:items-start items-center justify-center md:space-x-5 space-x-0">
-                  <div className="flex-shrink-0">
-                    <Image
-                      src={
-                        'https://res.cloudinary.com/dg3gyk0gu/image/upload/v1617475003/egghead-next-pages/home-page/eggo-gardening.png'
-                      }
-                      alt="illustration for Digital Gardening for Developers "
-                      width={222}
-                      height={273}
-                      quality={100}
-                    />
-                  </div>
-                  <div className="max-w-screen-sm space-y-3">
-                    <h1 className="md:text-3xl text-2xl dark:text-gray-200 font-bold leading-tight">
-                      Digital Gardening for Developers
-                    </h1>
-
-                    <div className="prose dark:prose-dark leading-relaxed text-gray-700 dark:text-gray-50 space-y-3 ">
-                      <p>
-                        Success in software development requires deeply layered,
-                        high-value communication. If you are serious about
-                        making an impact in your coding career, you should get
-                        good at writing words as well as code. This an
-                        agreed-upon quality for developers. And it all starts
-                        with having your own digital garden.
-                      </p>
-                      <blockquote>
-                        The phrase "digital garden" is a metaphor for thinking
-                        about writing and creating that focuses less on the
-                        resulting "showpiece" and more on the process, care, and
-                        craft it takes to get there. &mdash;{' '}
-                        <a href="https://joelhooks.com/digital-garden">
-                          Joel Hooks
-                        </a>
-                      </blockquote>
-                    </div>
-                  </div>
-                </header>
-                <div>
-                  <div className="grid lg:grid-cols-12 grid-cols-1 gap-5 mt-5">
-                    {featureCallOut.resources.map((resource: any) => {
-                      return (
-                        <Card
-                          className="col-span-4 text-center"
-                          key={resource.path}
-                          resource={resource}
-                          location={location}
-                        />
-                      )
-                    })}
-                  </div>
-                </div>
-              </div>
-            </section>
 
             <CardHorizontal resource={ecommerce} />
             <div className="grid xl:grid-cols-2 lg:grid-cols-1 md:grid-cols-2 grid-cols-1 lg:gap-6 gap-4">
