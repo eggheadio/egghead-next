@@ -13,13 +13,13 @@ const InstructorProfile: React.FunctionComponent<{
   <div className={className ? className : ''}>
     <div className="flex flex-shrink-0">
       <div
-        className="sm:w-10 sm:h-10 w-8 h-8 rounded-full flex-shrink-0"
+        className="sm:w-12 sm:h-12 w-8 h-8 rounded-full flex-shrink-0"
         style={{
           background: `url(${avatar_url})`,
           backgroundSize: 'cover',
         }}
       />
-      <div className="sm:pl-2 pl-1 flex flex-col justify-center">
+      <div className="sm:pl-3 pl-2 flex flex-col justify-center">
         <h4 className="text-gray-700 dark:text-gray-400 text-sm leading-tighter">
           Instructor
         </h4>
