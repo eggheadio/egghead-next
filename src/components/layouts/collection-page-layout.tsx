@@ -372,7 +372,7 @@ const CollectionPageLayout: React.FunctionComponent<CoursePageLayoutProps> = ({
             information.
           </div>
         )}
-        <div className="mt-5 grid md:grid-cols-5 grid-cols-1 md:gap-16 gap-5 rounded-md w-full left-0 mb-4">
+        <div className="mt-8 grid md:grid-cols-5 grid-cols-1 md:gap-16 gap-5 rounded-md w-full left-0 mb-4">
           <div className="md:col-span-3 md:row-start-auto flex flex-col h-full max-w-screen-2xl w-full mx-auto">
             <header>
               {image_url && (
@@ -380,7 +380,7 @@ const CollectionPageLayout: React.FunctionComponent<CoursePageLayoutProps> = ({
                   <CourseArtwork
                     path={nextLesson.path}
                     trackText="clicked course image on mobile"
-                    size={imageIsTag ? 100 : 200}
+                    size={imageIsTag ? 100 : 320}
                   />
                 </div>
               )}
@@ -397,7 +397,7 @@ const CollectionPageLayout: React.FunctionComponent<CoursePageLayoutProps> = ({
                   <span className="font-semibold">Part {moduleLabel}</span>
                 </h1>
               )}
-              <h1 className="text-xl sm:text-2xl md:text-3xl font-bold leading-tight md:text-left text-center mt-4 md:mt-0">
+              <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold leading-tight md:text-left text-center mt-4 md:mt-12">
                 {title}
               </h1>
               <div className="mt-4 flex flex-col items-center md:items-start">
@@ -516,7 +516,7 @@ const CollectionPageLayout: React.FunctionComponent<CoursePageLayoutProps> = ({
               <div className="md:hidden flex items-center justify-center w-full mt-5">
                 <PlayButton lesson={nextLesson} />
               </div>
-              <Markdown className="prose dark:prose-dark md:prose-lg md:dark:prose-lg-dark text-gray-900 dark:text-gray-100 mt-6 mb-6">
+              <Markdown className="prose dark:prose-dark md:prose-lg md:dark:prose-lg-dark text-gray-900 dark:text-gray-100 mt-20 mb-6">
                 {description}
               </Markdown>
               <div className="pt-5 md:hidden block">
