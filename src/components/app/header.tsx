@@ -44,16 +44,16 @@ const Header: FunctionComponent = () => {
               Feedback
             </Feedback>
             {!isEmpty(viewer) && (
-              <Link href={`/bookmarks`}>
+              <Link href={`/dashboard`}>
                 <a
                   onClick={() =>
-                    track('clicked bookmarks', {
+                    track('clicked dashboard', {
                       location: 'header',
                     })
                   }
                   className="px-3 py-2 hover:bg-gray-100 dark:hover:bg-gray-800 active:bg-gray-200 dark:hover:text-white rounded-md inline-flex transition-all ease-in-out duration-300 leading-tight"
                 >
-                  Bookmarks
+                  My Dashboard
                 </a>
               </Link>
             )}
