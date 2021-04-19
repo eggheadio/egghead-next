@@ -71,7 +71,6 @@ const Dashboard: React.FunctionComponent<LoginRequiredParams> = ({
           <h1 className="text-xl font-semibold pb-1 mb-6 border-b border-gray-200 dark:border-gray-800">
             Watch History
           </h1>
-          <Bookmarks viewer={viewer} />
         </div>
       </div>
     </LoginRequired>
