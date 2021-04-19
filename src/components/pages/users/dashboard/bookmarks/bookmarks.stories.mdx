@@ -1,0 +1,19 @@
+import {Meta, Story, Canvas} from '@storybook/addon-docs/blocks'
+import Bookmarks from './'
+
+export const viewer = {
+  watch_later_bookmarks_url:
+    'http://app.egghead.af:5000/api/v1/playlists/watch-later-c218cd8dcc56dfda',
+}
+
+<Meta title="Components/Users/Dashboard/Bookmarks" />
+
+# User Bookmarks
+
+<Canvas>
+  <Story name="Default">
+    <div className="bg-gray-50 p-5">
+      <Bookmarks viewer={viewer} />
+    </div>
+  </Story>
+</Canvas>
