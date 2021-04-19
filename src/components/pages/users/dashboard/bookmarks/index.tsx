@@ -41,25 +41,30 @@ const Bookmarks: FunctionComponent<BookmarksProps> = ({viewer}) => {
         <ul className="space-y-5">
           {bookmarks.map((bookmark: any) => {
             return (
-              <li className="flex items-center space-x-2" key={bookmark.slug}>
-                {bookmark.square_cover_128_url && (
-                  <div className="flex items-center flex-shrink-0">
-                    <Image
-                      width={32}
-                      height={32}
-                      src={bookmark.square_cover_128_url}
-                    />
-                  </div>
-                )}
-                <Link href={bookmark.path}>
-                  <a className="group inline-flex items-center space-x-2">
-                    <div className="group-hover:underline font-medium md:text-lg text-normal leading-tight">
-                      {bookmark.title}
+              <li
+                className="flex justify-between items-center"
+                key={bookmark.slug}
+              >
+                <div className="flex items-center space-x-4">
+                  {bookmark.square_cover_128_url && (
+                    <div>
+                      <Image
+                        width={32}
+                        height={32}
+                        src={bookmark.square_cover_128_url}
+                      />
                     </div>
-                  </a>
-                </Link>
+                  )}
+                  <Link href={bookmark.path}>
+                    <a className="inline-flex items-center space-x-2">
+                      <div className="hover:text-blue-600 font-medium text-lg leading-tight transition duration-150 ease-in-out">
+                        {bookmark.title}
+                      </div>
+                    </a>
+                  </Link>
+                </div>
                 <button
-                  className="rounded text-xs px-2 py-1 justify-center items-center text-black dark:text-white bg-gray-100 dark:bg-gray-800 hover:bg-gray-200  dark:hover:bg-gray-700 transition-colors duration-150 ease-in-out "
+                  className="text-gray-500 hover:text-white p-1 bg-gray-50 hover:bg-red-400 rounded-xl transition duration-300 ease-in-out justify-self-end ml-5"
                   onClick={(e) => {
                     e.preventDefault()
                     axios.post(bookmark.toggle_favorite_url)
@@ -72,7 +77,20 @@ const Bookmarks: FunctionComponent<BookmarksProps> = ({viewer}) => {
                     setBookmarks(lessBookmarks)
                   }}
                 >
-                  remove
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    className="h-4 w-4"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M6 18L18 6M6 6l12 12"
+                    />
+                  </svg>
                 </button>
               </li>
             )
