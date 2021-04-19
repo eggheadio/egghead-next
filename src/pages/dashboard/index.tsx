@@ -29,13 +29,13 @@ const Dashboard: React.FunctionComponent<LoginRequiredParams> = ({
     <LoginRequired loginRequired={loginRequired}>
       <div className="mt-12 mb-32 max-w-screen-xl w-full mx-auto">
         <div>
-          <h1 className="sm:text-3xl text-xl font-bold mb-3 leading-tight">
+          <h1 className="sm:text-2xl text-xl font-semibold pb-2 mb-6 leading-tight border-b">
             Bookmarks
           </h1>
           <Bookmarks viewer={viewer} />
         </div>
         <div className="mt-16">
-          <h1 className="sm:text-3xl text-xl font-bold mb-3 leading-tight">
+          <h1 className="sm:text-2xl text-xl font-semibold pb-2 mb-6 leading-tight border-b">
             Watch History
           </h1>
           <Bookmarks viewer={viewer} />
