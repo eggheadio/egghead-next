@@ -7,6 +7,7 @@ import isEmpty from 'lodash/isEmpty'
 import {loadUserProgress} from 'lib/users'
 import Bookmarks from 'components/pages/users/dashboard/bookmarks'
 import InProgressResource from 'components/pages/users/dashboard/activity/in-progress-resource'
+import WatchHistory from 'components/pages/users/dashboard/watch-history'
 
 export const getServerSideProps: GetServerSideProps = async function ({
   req,
