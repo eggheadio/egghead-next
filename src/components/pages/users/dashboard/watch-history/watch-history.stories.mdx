@@ -1,0 +1,500 @@
+import {Meta, Story, Canvas} from '@storybook/addon-docs/blocks'
+import WatchHistory from './'
+
+<Meta title="Components/Users/Dashboard/Watch History" />
+
+# User Watch History
+
+<Canvas>
+  <Story name="Default">
+    <div className="bg-gray-50 p-5">
+      <WatchHistory resources={completedLessons} />
+    </div>
+  </Story>
+</Canvas>
+
+export const completedLessons = [
+  {
+    id: 6258,
+    creator_id: 71775,
+    slug: 'react-use-a-lazy-initializer-with-usestate',
+    title: 'Use a lazy initializer with useState',
+    state: 'published',
+    summary:
+      'Something that’s important to recognize is that every time you call the state updater function (like the `setName` function in our component), that will trigger a re-render of the component that manages that state (the `Greeting` component in our example). This is exactly what we _want_ to have happen, but it _can_ be a problem in some situations and there are some optimizations we can apply for `useState` specifically in the event that it is a problem.\n\nIn our case, we’re reading into `localStorage` to initialize our state value for the first render of our `Greeting` component. But after that first render, we don’t need to read into `localStorage` anymore because we’re managing that state in memory now (specifically in that `name` variable that React gives us each render). So reading into `localStorage` every render after the first one is unnecessary. So React allows us to specify a function instead of an actual value, and then it will only call that function when it needs to–on the initial render.\n\nIn this lesson, I’ll show you how to do this and demonstrate how it works.',
+    duration: 140,
+    plays_count: 0,
+    published_at: '2020-03-24T13:04:51.115-05:00',
+    is_pro_content: false,
+    difficulty_rating: 0,
+    series_row_order_position: null,
+    free_forever: true,
+    transcript:
+      "Kent C. Dodds: [0:00] One thing that's important to know about the useState Hook is that the initial value you provide here is really important for the initial render of our component, but then it's ignored for renders of our component thereafter.\n\n[0:11] That's normally not a problem, especially if you have just an empty string here, but here we're reading into localStorage every time our greeting component is re-rendered. We can add a console.log('rendered') right here to see how often that is.\n\n[0:26] We open up our console and we'll see that we already have a rendered here for our initial render of the greeting component. As we type, we get a render every time we type a character. We only need it to read into localStorage for the initialization of our state. We don't need to have it read into localStorage for every single time we re-render.\n\n[0:47] This isn't really a huge deal here because reading into localStorage is pretty fast and we're not parsing anything, but if we were parsing a big JSON object, then this could be a problem.\n\n[0:59] To combat this, React.useState has a lazy initialization feature. You can provide a function as the initial value, and that function will be called to retrieve the initial value. That function will only be called when it's absolutely necessary to retrieve the initial value.\n\n[1:15] If we turn this into an arrow function, which simply returns that initial value, then we save this, we'll notice that we're still getting our renders, but this function is not getting called, except on the initial value retrieval.\n\n[1:30] We can prove this by making this a multiline arrow function, returning that value and console.log('hello') in here. Now we get that hello, and then we get that rendered, and that's an important note, is that this function is called synchronously, and it's expected to be synchronous.\n\n[1:51] As we type hello, you'll see that we do not get that console.log('hello'). We save ourselves the expense of reading into local storage on every render.\n\n[2:03] In review, the problem that we're solving here is that reading into localStorage is not necessary, except for the initial render of our component. We turn our initial value argument here into a function so that React will call it only when it's necessary to get that initial value, which is only on the first render.",
+    casting_words_order: 'zcKi',
+    visibility_state: 'indexed',
+    site: 'egghead.io',
+    type: 'lesson',
+    lesson_url:
+      'https://app.egghead.io/api/v1/lessons/react-use-a-lazy-initializer-with-usestate',
+    url:
+      'https://app.egghead.io/api/v1/lessons/react-use-a-lazy-initializer-with-usestate',
+    path: '/lessons/react-use-a-lazy-initializer-with-usestate',
+    http_url:
+      'https://app.egghead.io/lessons/react-use-a-lazy-initializer-with-usestate',
+    http_short_url: 'https://app.egghead.io/s/7vfng',
+    next_up_url:
+      'https://app.egghead.io/api/v1/lessons/react-use-a-lazy-initializer-with-usestate/next_up',
+    tag_list: ['free'],
+    library_list: [],
+    language_list: [],
+    framework_list: ['react'],
+    tool_list: [],
+    platform_list: [],
+    skillset_list: [],
+    skill_level_list: [],
+    image_480_url:
+      'https://d2eip9sf3oo6c2.cloudfront.net/tags/images/000/000/026/square_480/react.png',
+    image_280_url:
+      'https://d2eip9sf3oo6c2.cloudfront.net/tags/images/000/000/026/square_280/react.png',
+    image_256_url:
+      'https://d2eip9sf3oo6c2.cloudfront.net/tags/images/000/000/026/square_256/react.png',
+    image_128_url:
+      'https://d2eip9sf3oo6c2.cloudfront.net/tags/images/000/000/026/square_128/react.png',
+    image_64_url:
+      'https://d2eip9sf3oo6c2.cloudfront.net/tags/images/000/000/026/square_64/react.png',
+    image_32_url:
+      'https://d2eip9sf3oo6c2.cloudfront.net/tags/images/000/000/026/square_32/react.png',
+    icon_url:
+      'https://d2eip9sf3oo6c2.cloudfront.net/tags/images/000/000/026/thumb/react.png',
+    thumb_nail:
+      'https://dcv19h61vib2d.cloudfront.net/thumbs/react-use-a-lazy-initializer-with-usestate-u5t7pee93/react-use-a-lazy-initializer-with-usestate-u5t7pee93.jpg',
+    landscape_icon_url:
+      'https://d2eip9sf3oo6c2.cloudfront.net/tags/images/000/000/026/landscape/react.png',
+    transcript_url:
+      'https://app.egghead.io/api/v1/lessons/react-use-a-lazy-initializer-with-usestate/transcript',
+    enhanced_transcript_url:
+      'https://app.egghead.io/api/v1/lessons/react-use-a-lazy-initializer-with-usestate/transcript',
+    subtitles_url:
+      'https://app.egghead.io/api/v1/lessons/react-use-a-lazy-initializer-with-usestate/subtitles',
+    related_url:
+      'https://app.egghead.io/api/v1/lessons/react-use-a-lazy-initializer-with-usestate/related',
+    can_comment: true,
+    lesson_errata: [],
+    is_pro: false,
+    technology: {
+      name: 'react',
+      label: 'React',
+      http_url: 'https://app.egghead.io/browse/frameworks/react',
+      logo_http_url:
+        'https://d2eip9sf3oo6c2.cloudfront.net/tags/images/000/000/026/thumb/react.png',
+    },
+    primary_tag: {
+      id: 26,
+      label: 'React',
+      name: 'react',
+      description:
+        'React is one of the web’s most popular frameworks for building JavaScript applications. \n\nIf you know what you’re doing, React can drastically simplify how you build, use, and maintain code.\n\nWhether you’re a React newbie or you’re ready for advanced techniques, you can level-up with egghead. Explore our in-depth courses, lessons, and community resources to build more powerful applications and crack open your career.',
+      slug: 'react',
+      image:
+        'https://d2eip9sf3oo6c2.cloudfront.net/tags/images/000/000/026/thumb/react.png',
+      image_url:
+        'https://d2eip9sf3oo6c2.cloudfront.net/tags/images/000/000/026/thumb/react.png',
+      image_480_url:
+        'https://d2eip9sf3oo6c2.cloudfront.net/tags/images/000/000/026/square_480/react.png',
+      image_280_url:
+        'https://d2eip9sf3oo6c2.cloudfront.net/tags/images/000/000/026/square_280/react.png',
+      image_256_url:
+        'https://d2eip9sf3oo6c2.cloudfront.net/tags/images/000/000/026/square_256/react.png',
+      image_128_url:
+        'https://d2eip9sf3oo6c2.cloudfront.net/tags/images/000/000/026/square_128/react.png',
+      image_64_url:
+        'https://d2eip9sf3oo6c2.cloudfront.net/tags/images/000/000/026/square_64/react.png',
+      image_32_url:
+        'https://d2eip9sf3oo6c2.cloudfront.net/tags/images/000/000/026/square_32/react.png',
+      latest_course_url:
+        'https://app.egghead.io/api/v1/series/build-maps-with-react-leaflet?load_lessons=false',
+      http_url: 'https://app.egghead.io/browse/frameworks/react',
+      path: '/browse/frameworks/react',
+      search_url: 'https://app.egghead.io/search?topic=react',
+      context: 'frameworks',
+    },
+    tags: [
+      {
+        id: 26,
+        label: 'React',
+        name: 'react',
+        description:
+          'React is one of the web’s most popular frameworks for building JavaScript applications. \n\nIf you know what you’re doing, React can drastically simplify how you build, use, and maintain code.\n\nWhether you’re a React newbie or you’re ready for advanced techniques, you can level-up with egghead. Explore our in-depth courses, lessons, and community resources to build more powerful applications and crack open your career.',
+        slug: 'react',
+        image:
+          'https://d2eip9sf3oo6c2.cloudfront.net/tags/images/000/000/026/thumb/react.png',
+        image_url:
+          'https://d2eip9sf3oo6c2.cloudfront.net/tags/images/000/000/026/thumb/react.png',
+        image_480_url:
+          'https://d2eip9sf3oo6c2.cloudfront.net/tags/images/000/000/026/square_480/react.png',
+        image_280_url:
+          'https://d2eip9sf3oo6c2.cloudfront.net/tags/images/000/000/026/square_280/react.png',
+        image_256_url:
+          'https://d2eip9sf3oo6c2.cloudfront.net/tags/images/000/000/026/square_256/react.png',
+        image_128_url:
+          'https://d2eip9sf3oo6c2.cloudfront.net/tags/images/000/000/026/square_128/react.png',
+        image_64_url:
+          'https://d2eip9sf3oo6c2.cloudfront.net/tags/images/000/000/026/square_64/react.png',
+        image_32_url:
+          'https://d2eip9sf3oo6c2.cloudfront.net/tags/images/000/000/026/square_32/react.png',
+        latest_course_url:
+          'https://app.egghead.io/api/v1/series/build-maps-with-react-leaflet?load_lessons=false',
+        http_url: 'https://app.egghead.io/browse/frameworks/react',
+        path: '/browse/frameworks/react',
+        search_url: 'https://app.egghead.io/search?topic=react',
+        context: 'frameworks',
+      },
+    ],
+    instructor_url: 'https://app.egghead.io/api/v1/instructors/kent-c-dodds',
+    instructor: {
+      id: 11,
+      slug: 'kent-c-dodds',
+      full_name: 'Kent C. Dodds',
+      first_name: 'Kent C.',
+      last_name: 'Dodds',
+      twitter: 'kentcdodds',
+      website: 'http://kentcdodds.com',
+      bio_short:
+        "a JavaScript developer who likes open source and teaching.\r\n[Learn about Kent's story with egghead](https://howtoegghead.com/instructor/case-studies/kent-c-dodds)",
+      http_url: 'https://app.egghead.io/instructors/kent-c-dodds',
+      avatar_url:
+        'https://d2eip9sf3oo6c2.cloudfront.net/instructors/avatars/000/000/011/original/photo-512.png',
+      avatar_480_url:
+        'https://d2eip9sf3oo6c2.cloudfront.net/instructors/avatars/000/000/011/square_480/photo-512.png',
+      avatar_280_url:
+        'https://d2eip9sf3oo6c2.cloudfront.net/instructors/avatars/000/000/011/square_280/photo-512.png',
+      avatar_256_url:
+        'https://d2eip9sf3oo6c2.cloudfront.net/instructors/avatars/000/000/011/square_256/photo-512.png',
+      avatar_128_url:
+        'https://d2eip9sf3oo6c2.cloudfront.net/instructors/avatars/000/000/011/square_128/photo-512.png',
+      avatar_64_url:
+        'https://d2eip9sf3oo6c2.cloudfront.net/instructors/avatars/000/000/011/square_64/photo-512.png',
+      avatar_32_url:
+        'https://d2eip9sf3oo6c2.cloudfront.net/instructors/avatars/000/000/011/square_32/photo-512.png',
+      lessons_url:
+        'https://app.egghead.io/api/v1/instructors/kent-c-dodds/lessons',
+      published_lessons: 287,
+      published_courses: 9,
+    },
+    'instructor_playlists_url=':
+      'https://app.egghead.io/api/v1/lessons/react-use-a-lazy-initializer-with-usestate/instructor_playlists',
+    series_url:
+      'https://app.egghead.io/api/v1/series/the-beginner-s-guide-to-react',
+    series_row_order: -4956407,
+    series: {
+      title: "The Beginner's Guide to React",
+      description:
+        'React got that name for a reason. It’s a component-based JavaScript library that renders smartly and can seriously simplify your work.\n\nThis course is for React newbies and anyone looking to build a solid foundation. It’s designed to teach you everything you need to start building web applications in React right away.\n\nEach lesson in this 28-part course is a single `index.html` file. This keeps your focus on learning React, no distractions. We’ll start with a blank file and add more complexity as we go along, wrapping the course with a lesson on how to move into a more production-ready development environment—and even deploy your app to a great service like Netlify.\n\nYou’ll build a solid understanding so when you come across JavaScript challenges down the road, you’ll know how to…react.',
+      duration: 8824,
+      slug: 'the-beginner-s-guide-to-react',
+      lessons_url:
+        'https://app.egghead.io/api/v1/series/the-beginner-s-guide-to-react/lessons',
+      progress_url:
+        'https://app.egghead.io/api/v1/series/the-beginner-s-guide-to-react/progress',
+      url: 'https://app.egghead.io/api/v1/series/the-beginner-s-guide-to-react',
+      http_url: 'https://app.egghead.io/courses/the-beginner-s-guide-to-react',
+      path: '/courses/the-beginner-s-guide-to-react',
+      square_cover_url:
+        'https://d2eip9sf3oo6c2.cloudfront.net/series/square_covers/000/000/160/thumb/EGH_BeginnersReact2.png',
+      square_cover_large_url:
+        'https://d2eip9sf3oo6c2.cloudfront.net/series/square_covers/000/000/160/full/EGH_BeginnersReact2.png',
+      square_cover_landscape_url:
+        'https://d2eip9sf3oo6c2.cloudfront.net/series/square_covers/000/000/160/landscape/EGH_BeginnersReact2.png',
+      instructor: {
+        instructor_url:
+          'https://app.egghead.io/api/v1/instructors/kent-c-dodds',
+        id: 11,
+        slug: 'kent-c-dodds',
+        full_name: 'Kent C. Dodds',
+        first_name: 'Kent C.',
+        last_name: 'Dodds',
+        twitter: 'kentcdodds',
+        website: 'http://kentcdodds.com',
+        bio_short:
+          "a JavaScript developer who likes open source and teaching.\r\n[Learn about Kent's story with egghead](https://howtoegghead.com/instructor/case-studies/kent-c-dodds)",
+        http_url: 'https://app.egghead.io/instructors/kent-c-dodds',
+        avatar_url:
+          'https://d2eip9sf3oo6c2.cloudfront.net/instructors/avatars/000/000/011/original/photo-512.png',
+        lessons_url:
+          'https://app.egghead.io/api/v1/instructors/kent-c-dodds/lessons',
+        published_lessons: 287,
+        published_courses: 9,
+      },
+    },
+    tracklist_id: null,
+    completed: true,
+    toggle_favorite_url:
+      'https://app.egghead.io/api/v1/lessons/react-use-a-lazy-initializer-with-usestate/favorites/toggle',
+    toggle_like_lesson_url:
+      'https://app.egghead.io/api/v1/lessons/react-use-a-lazy-initializer-with-usestate/likes/toggle',
+    lesson_view_url:
+      'https://app.egghead.io/api/v1/lessons/react-use-a-lazy-initializer-with-usestate/views',
+    favorited: false,
+    liked: false,
+    download_url:
+      'https://app.egghead.io/api/v1/lessons/react-use-a-lazy-initializer-with-usestate/signed_download',
+    media_urls: {
+      hls_url:
+        'https://d2c5owlt6rorc3.cloudfront.net/react-use-a-lazy-initializer-with-usestate-u5t7pee93/hls/react-use-a-lazy-initializer-with-usestate-u5t7pee93.m3u8',
+      dash_url:
+        'https://d2c5owlt6rorc3.cloudfront.net/react-use-a-lazy-initializer-with-usestate-u5t7pee93/dash/react-use-a-lazy-initializer-with-usestate-u5t7pee93.mpd',
+    },
+    notes:
+      "- Something it's important to recognize is that every time you call the state updater function, that will trigger a re-render of the component that manages that state (the Greeting component in our example).\n- This is exactly what we want to have happen, but it can be a problem in some situations and there are some optimizations we can apply for `useState` specifically in the event that it is a problem.\n\n- In our case, we’re reading into `localStorage` to initialize our state value for the first render of our Greeting component.\n\n- After that first render, we don’t need to read into localStorage anymore because we’re managing that state in memory now.\n\n```html\n<body>\n  <div id=\"root\"></div>\n  <script src=\"https://unpkg.com/react@16.12.0/umd/react.development.js\"></script>\n  <script src=\"https://unpkg.com/react-dom@16.12.0/umd/react-dom.development.js\"></script>\n  <script src=\"https://unpkg.com/@babel/standalone@7.8.3/babel.js\"></script>\n  <script type=\"text/babel\">\n    function Greeting() {\n      const [name, setName] = React.useState(\n        // Arrow function\n        //  React allows us to specify a function instead of an actual value, and then it will only call that function when it needs to – on the initial render.\n        () => window.localStorage.getItem('name') || ''\n      );\n\n      // We don't want to render on every change\n      // Since we're using localStorage, it's not a big deal\n\n      React.useEffect(() => {\n        window.localStorage.setItem('name', name);\n      });\n\n      const handleChange = event => setName(event.target.value);\n\n      return (\n        <div>\n          <form>\n            <label htmlFor=\"name\">Name: </label>\n            <input value={name} onChange={handleChange} id=\"name\" />\n          </form>\n          {name ? <strong>Hello {name}</strong> : 'Please type your name'}\n        </div>\n      );\n    }\n\n    ReactDOM.render(<Greeting />, document.getElementById('root'));\n  </script>\n</body>\n```\n\n## Additional resource\n\n- [Kent's Blog - How to implement useState with useReducer](https://kentcdodds.com/blog/how-to-implement-usestate-with-usereducer)\n- [React Docs - Effects Without Cleanup](https://reactjs.org/docs/hooks-effect.html#effects-without-cleanup)\n\n[✏️ Edit on GitHub](https://github.com/eggheadio/eggheadio-course-notes/tree/master/the-beginners-guide-to-react/notes)",
+    code: {
+      plunker_url:
+        'https://codesandbox.io/embed/github/kentcdodds/beginners-guide-to-react/tree/codesandbox/14-lazy-initialization?fontsize=14&hidenavigation=1&theme=dark',
+    },
+    flag_url:
+      'https://app.egghead.io/api/v1/lessons/react-use-a-lazy-initializer-with-usestate/flag',
+    retire_url:
+      'https://app.egghead.io/api/v1/lessons/react-use-a-lazy-initializer-with-usestate/retire',
+    remove_url:
+      'https://app.egghead.io/api/v1/lessons/react-use-a-lazy-initializer-with-usestate/remove',
+    hide_url:
+      'https://app.egghead.io/api/v1/lessons/react-use-a-lazy-initializer-with-usestate/hide',
+    upload_lesson_http_url:
+      'https://app.egghead.io/lesson_uploads/new?lesson=react-use-a-lazy-initializer-with-usestate&upload=true',
+    edit_lesson_http_url:
+      'https://app.egghead.io/lessons/react-use-a-lazy-initializer-with-usestate/edit',
+    update_lesson_url:
+      'https://app.egghead.io/api/v1/lessons/react-use-a-lazy-initializer-with-usestate',
+    process_lesson_video_url:
+      'https://app.egghead.io/api/v1/lessons/react-use-a-lazy-initializer-with-usestate/upload',
+    signed_s3_upload_url: 'https://app.egghead.io/api/v1/s3/sign',
+    notifications: [],
+    create_lesson_version_flag_url:
+      'https://app.egghead.io/api/v1/lesson_version_flags',
+    lesson_version_flag_url:
+      'https://app.egghead.io/api/v1/lesson_version_flags/react-use-a-lazy-initializer-with-usestate',
+  },
+  {
+    id: 7953,
+    creator_id: 186087,
+    slug:
+      'next-js-add-and-style-a-grid-of-products-with-images-in-a-next-js-react-app',
+    title:
+      'Add and Style a Grid of Products with Images in a Next.js React App',
+    state: 'published',
+    summary:
+      "The core of any shopping experience is simply being able to see what the store has to offer! This includes what products are available and how much each one of them costs.\n\nWhile we can do this in a variety of ways, a common way is to show a grid of products where we can see everything the store has to offer (or a lot of it). Using some HTML and CSS, we can create our product grid allowing our customers a look into our store.\n\nThe default Next.js template has 'cards' that will serve us well in displaying the products that we want to sell. We will upgrade these cards to handle images and be positioned and styled to our liking.",
+    duration: 270,
+    plays_count: 0,
+    published_at: '2020-12-15T15:45:24.951-06:00',
+    is_pro_content: true,
+    difficulty_rating: 0,
+    series_row_order_position: null,
+    free_forever: false,
+    transcript:
+      "Colby Fayock: [0:00] We're going to start off with the new Next.js app, where I've updated the title in the description to my Space Jelly Shop. Inside our code, we can see that it pretty much looks exactly the same as a create Next.js app except we updated the titles. Our goal is to create an online store, where we can sell products.\n\n[0:13] The first thing we want to do is actually add the products. For an easy way to get started, we can simply reuse these cards that already exists to add our products. For my store, I have three products that I want to add -- a T-shirt, a set of stickers, and a combo pack that includes both the T-shirt and stickers.\n\n[0:27] In my code, I'm going to find that first card. I'm going to replace documentation with the title. I'm also going to replace the paragraph tag with my description. I also went ahead and did the same thing for the next two cards in the list, but since we only have three products and we have four cards, we can go ahead and get rid of the last one.\n\n[0:41] If we look at the app, we can see that it's already updated with our product information. Part of what really sells products is being able to show an image of it, so people know what they're buying. Let's add images to each one of these cards.\n\n[0:52] To prepare to add the images to the project, I added three image files directly to my public folder including the combo, the stickers, and the T-shirt.\n\n[1:00] Because we made that available inside of our public directory, that means that we can access those images statically as /images and the file name. Inside of my first card, I'm going to create a new img tag and I'm going to reference that first image with /images spacejellytshirt.jpg. I'm also going to set an alternate tag of Space Jelly T-shirt, close that tag.\n\n[1:21] If we look at the browser, we can already see that our image is inside the app, but it's huge. By default, Next.js doesn't have any styles included that prevents images from growing beyond their container.\n\n[1:30] To prevent this, I'm going to open up my globals.css file. In the bottom, I'm going to add image max-width = 100 percent. Now, if we look at the app, we can see that the image looks a little bit better. Back inside my code, I added images to the next two product cards, and we can see that those, load as well.\n\n[1:45] Finally, when we're showing our products in our shop, we're actually showing a list of products. In the code, we're currently using a div for the grid and a couple anchor tags for the products. While that works, it's probably more semantic and accessible to use something like an unordered list, so that we're using a list element for our HTML.\n\n[2:02] We can pretty easily update that by first changing the div to an unordered list. For each of our cards, I'm going to create a list element that's going to wrap each of those anchor tags. To make sure that our cards are still styled properly, we can move this class name prop from each of those anchor tags to our list element.\n\n[2:19] Once we do the same thing for each of our cards, we can see that the page updated but it's not quite right anymore. To start, we need to remove the default styles for our list element. If we open up our home.module.css file, we can start by on our grid, we can add list style = none. That will get rid of the bullets next to each item.\n\n[2:36] Next, these are probably too big, and we don't want them in a single column. We also want to make sure that any time we have this percentage value, it's going to take into consideration the margin on each of the sides. Let's change this 45 percent to calc 50 percent, so that we have two columns minus two rem, which includes the margin on each side of the product.\n\n[2:55] Now, if we open our browser, we can see that we're back to two columns. Because we have a wider screen here, we might want our products to be wider, and have three columns when it's that size.\n\n[3:04] To solve that, we can add a new media query. We're going to type out, media, we're going to say min-width, let's say 960 pixels. Inside that, we're going to define the card class. We're going to say flex-basis, let's say calc 33.33 percent minus that same two rem.\n\n[3:23] We can immediately see that we're at three columns. It's a little squished. Let's widen that up a little bit. Since our grid is what's containing that size, let's set the max-width of our grid to 60em. When we open the page, we can see that it's nice and wide, and we can see all three products.\n\n[3:37] To see the effect of the two versus three columns depending on page size, we can first open up our Chrome DevTools, and we can change the size of this panel so that when it's below 960 pixels, we get two columns, but when it's back above 960 pixels, we have three columns.\n\n[3:53] Finally, if you noticed, each of our cards have a little bit different height and because of that, it doesn't look uniform across the top. You see a stagger effect. To fix that, we can update our align items to stretch. Now if we look back at our page, we can see that our cards are nice and uniform and the same size.\n\n[4:08] In review, we took our store, we added some products. We also made sure that each of those products inside of the cards take advantage of the size of the screen.\n\n[4:16] We were able to do that by first, updating the product and information for each of the cards as well as adding an image, and then updating our div to an unordered list with each list element.\n\n[4:25] With a few tweaks to our pre-existing styles, including a media query, we have our shop with our product cards.",
+    casting_words_order: 'zAjm',
+    visibility_state: 'indexed',
+    site: 'egghead.io',
+    type: 'lesson',
+    lesson_url:
+      'https://app.egghead.io/api/v1/lessons/next-js-add-and-style-a-grid-of-products-with-images-in-a-next-js-react-app',
+    url:
+      'https://app.egghead.io/api/v1/lessons/next-js-add-and-style-a-grid-of-products-with-images-in-a-next-js-react-app',
+    path:
+      '/lessons/next-js-add-and-style-a-grid-of-products-with-images-in-a-next-js-react-app',
+    http_url:
+      'https://app.egghead.io/lessons/next-js-add-and-style-a-grid-of-products-with-images-in-a-next-js-react-app',
+    http_short_url: 'https://app.egghead.io/s/yfwys',
+    next_up_url:
+      'https://app.egghead.io/api/v1/lessons/next-js-add-and-style-a-grid-of-products-with-images-in-a-next-js-react-app/next_up',
+    tag_list: ['pro'],
+    library_list: ['next'],
+    language_list: [],
+    framework_list: [],
+    tool_list: [],
+    platform_list: [],
+    skillset_list: [],
+    skill_level_list: [],
+    image_480_url:
+      'https://d2eip9sf3oo6c2.cloudfront.net/tags/images/000/001/074/square_480/nextjs.png',
+    image_280_url:
+      'https://d2eip9sf3oo6c2.cloudfront.net/tags/images/000/001/074/square_280/nextjs.png',
+    image_256_url:
+      'https://d2eip9sf3oo6c2.cloudfront.net/tags/images/000/001/074/square_256/nextjs.png',
+    image_128_url:
+      'https://d2eip9sf3oo6c2.cloudfront.net/tags/images/000/001/074/square_128/nextjs.png',
+    image_64_url:
+      'https://d2eip9sf3oo6c2.cloudfront.net/tags/images/000/001/074/square_64/nextjs.png',
+    image_32_url:
+      'https://d2eip9sf3oo6c2.cloudfront.net/tags/images/000/001/074/square_32/nextjs.png',
+    icon_url:
+      'https://d2eip9sf3oo6c2.cloudfront.net/tags/images/000/001/074/thumb/nextjs.png',
+    thumb_nail:
+      'https://dcv19h61vib2d.cloudfront.net/thumbs/next-js-add-and-style-a-grid-of-products-with-images-in-a-next-js-react-app-fc2UL40t6/next-js-add-and-style-a-grid-of-products-with-images-in-a-next-js-react-app-fc2UL40t6.jpg',
+    landscape_icon_url:
+      'https://d2eip9sf3oo6c2.cloudfront.net/tags/images/000/001/074/landscape/nextjs.png',
+    transcript_url:
+      'https://app.egghead.io/api/v1/lessons/next-js-add-and-style-a-grid-of-products-with-images-in-a-next-js-react-app/transcript',
+    enhanced_transcript_url:
+      'https://app.egghead.io/api/v1/lessons/next-js-add-and-style-a-grid-of-products-with-images-in-a-next-js-react-app/transcript',
+    subtitles_url:
+      'https://app.egghead.io/api/v1/lessons/next-js-add-and-style-a-grid-of-products-with-images-in-a-next-js-react-app/subtitles',
+    related_url:
+      'https://app.egghead.io/api/v1/lessons/next-js-add-and-style-a-grid-of-products-with-images-in-a-next-js-react-app/related',
+    can_comment: true,
+    lesson_errata: [],
+    is_pro: true,
+    technology: {
+      name: 'next',
+      label: 'Next.js',
+      http_url: 'https://app.egghead.io/browse/libraries/next',
+      logo_http_url:
+        'https://d2eip9sf3oo6c2.cloudfront.net/tags/images/000/001/074/thumb/nextjs.png',
+    },
+    primary_tag: {
+      id: 1074,
+      label: 'Next.js',
+      name: 'next',
+      description:
+        'Next.js is a minimalistic framework for server-rendered React applications.',
+      slug: 'next',
+      image:
+        'https://d2eip9sf3oo6c2.cloudfront.net/tags/images/000/001/074/thumb/nextjs.png',
+      image_url:
+        'https://d2eip9sf3oo6c2.cloudfront.net/tags/images/000/001/074/thumb/nextjs.png',
+      image_480_url:
+        'https://d2eip9sf3oo6c2.cloudfront.net/tags/images/000/001/074/square_480/nextjs.png',
+      image_280_url:
+        'https://d2eip9sf3oo6c2.cloudfront.net/tags/images/000/001/074/square_280/nextjs.png',
+      image_256_url:
+        'https://d2eip9sf3oo6c2.cloudfront.net/tags/images/000/001/074/square_256/nextjs.png',
+      image_128_url:
+        'https://d2eip9sf3oo6c2.cloudfront.net/tags/images/000/001/074/square_128/nextjs.png',
+      image_64_url:
+        'https://d2eip9sf3oo6c2.cloudfront.net/tags/images/000/001/074/square_64/nextjs.png',
+      image_32_url:
+        'https://d2eip9sf3oo6c2.cloudfront.net/tags/images/000/001/074/square_32/nextjs.png',
+      latest_course_url:
+        'https://app.egghead.io/api/v1/series/build-a-server-rendered-reactjs-application-with-next-js?load_lessons=false',
+      http_url: 'https://app.egghead.io/browse/libraries/next',
+      path: '/browse/libraries/next',
+      search_url: 'https://app.egghead.io/search?topic=next',
+      context: 'libraries',
+    },
+    tags: [
+      {
+        id: 1074,
+        label: 'Next.js',
+        name: 'next',
+        description:
+          'Next.js is a minimalistic framework for server-rendered React applications.',
+        slug: 'next',
+        image:
+          'https://d2eip9sf3oo6c2.cloudfront.net/tags/images/000/001/074/thumb/nextjs.png',
+        image_url:
+          'https://d2eip9sf3oo6c2.cloudfront.net/tags/images/000/001/074/thumb/nextjs.png',
+        image_480_url:
+          'https://d2eip9sf3oo6c2.cloudfront.net/tags/images/000/001/074/square_480/nextjs.png',
+        image_280_url:
+          'https://d2eip9sf3oo6c2.cloudfront.net/tags/images/000/001/074/square_280/nextjs.png',
+        image_256_url:
+          'https://d2eip9sf3oo6c2.cloudfront.net/tags/images/000/001/074/square_256/nextjs.png',
+        image_128_url:
+          'https://d2eip9sf3oo6c2.cloudfront.net/tags/images/000/001/074/square_128/nextjs.png',
+        image_64_url:
+          'https://d2eip9sf3oo6c2.cloudfront.net/tags/images/000/001/074/square_64/nextjs.png',
+        image_32_url:
+          'https://d2eip9sf3oo6c2.cloudfront.net/tags/images/000/001/074/square_32/nextjs.png',
+        latest_course_url:
+          'https://app.egghead.io/api/v1/series/build-a-server-rendered-reactjs-application-with-next-js?load_lessons=false',
+        http_url: 'https://app.egghead.io/browse/libraries/next',
+        path: '/browse/libraries/next',
+        search_url: 'https://app.egghead.io/search?topic=next',
+        context: 'libraries',
+      },
+    ],
+    instructor_url: 'https://app.egghead.io/api/v1/instructors/colby-fayock',
+    instructor: {
+      id: 366,
+      slug: 'colby-fayock',
+      full_name: 'Colby Fayock',
+      first_name: 'Colby',
+      last_name: 'Fayock',
+      twitter: 'colbyfayock',
+      website: 'https://www.colbyfayock.com',
+      bio_short:
+        "I help others learn by doing through articles, videos, and courses about Javascript, React, and the static web. I'm a Lead UX & Front End Engineer passionate about tackling challenges that can help save people’s lives and make the world a better place.\r\n\r\n✉️ [Sign up for my newsletter!](https://www.colbyfayock.com/newsletter)",
+      http_url: 'https://app.egghead.io/instructors/colby-fayock',
+      avatar_url:
+        'https://d2eip9sf3oo6c2.cloudfront.net/instructors/avatars/000/000/366/original/IMG_7414.JPG',
+      avatar_480_url:
+        'https://d2eip9sf3oo6c2.cloudfront.net/instructors/avatars/000/000/366/square_480/IMG_7414.JPG',
+      avatar_280_url:
+        'https://d2eip9sf3oo6c2.cloudfront.net/instructors/avatars/000/000/366/square_280/IMG_7414.JPG',
+      avatar_256_url:
+        'https://d2eip9sf3oo6c2.cloudfront.net/instructors/avatars/000/000/366/square_256/IMG_7414.JPG',
+      avatar_128_url:
+        'https://d2eip9sf3oo6c2.cloudfront.net/instructors/avatars/000/000/366/square_128/IMG_7414.JPG',
+      avatar_64_url:
+        'https://d2eip9sf3oo6c2.cloudfront.net/instructors/avatars/000/000/366/square_64/IMG_7414.JPG',
+      avatar_32_url:
+        'https://d2eip9sf3oo6c2.cloudfront.net/instructors/avatars/000/000/366/square_32/IMG_7414.JPG',
+      lessons_url:
+        'https://app.egghead.io/api/v1/instructors/colby-fayock/lessons',
+      published_lessons: 131,
+      published_courses: 1,
+    },
+    'instructor_playlists_url=':
+      'https://app.egghead.io/api/v1/lessons/next-js-add-and-style-a-grid-of-products-with-images-in-a-next-js-react-app/instructor_playlists',
+    tracklist_id: null,
+    completed: true,
+    toggle_favorite_url:
+      'https://app.egghead.io/api/v1/lessons/next-js-add-and-style-a-grid-of-products-with-images-in-a-next-js-react-app/favorites/toggle',
+    toggle_like_lesson_url:
+      'https://app.egghead.io/api/v1/lessons/next-js-add-and-style-a-grid-of-products-with-images-in-a-next-js-react-app/likes/toggle',
+    lesson_view_url:
+      'https://app.egghead.io/api/v1/lessons/next-js-add-and-style-a-grid-of-products-with-images-in-a-next-js-react-app/views',
+    favorited: false,
+    liked: false,
+    download_url:
+      'https://app.egghead.io/api/v1/lessons/next-js-add-and-style-a-grid-of-products-with-images-in-a-next-js-react-app/signed_download',
+    media_urls: {
+      hls_url:
+        'https://d2c5owlt6rorc3.cloudfront.net/next-js-add-and-style-a-grid-of-products-with-images-in-a-next-js-react-app-fc2UL40t6/hls/next-js-add-and-style-a-grid-of-products-with-images-in-a-next-js-react-app-fc2UL40t6.m3u8',
+      dash_url:
+        'https://d2c5owlt6rorc3.cloudfront.net/next-js-add-and-style-a-grid-of-products-with-images-in-a-next-js-react-app-fc2UL40t6/dash/next-js-add-and-style-a-grid-of-products-with-images-in-a-next-js-react-app-fc2UL40t6.mpd',
+    },
+    notes: null,
+    code: {
+      github: {
+        repo: 'space-jelly-store-workshop',
+        user: 'colbyfayock',
+        branch:
+          'main/lessons/02%20-%20Add%20a%20Grid%20of%20Products%20with%20Images%20to%20a%20Next.js%20React%20App',
+      },
+    },
+    flag_url:
+      'https://app.egghead.io/api/v1/lessons/next-js-add-and-style-a-grid-of-products-with-images-in-a-next-js-react-app/flag',
+    retire_url:
+      'https://app.egghead.io/api/v1/lessons/next-js-add-and-style-a-grid-of-products-with-images-in-a-next-js-react-app/retire',
+    remove_url:
+      'https://app.egghead.io/api/v1/lessons/next-js-add-and-style-a-grid-of-products-with-images-in-a-next-js-react-app/remove',
+    hide_url:
+      'https://app.egghead.io/api/v1/lessons/next-js-add-and-style-a-grid-of-products-with-images-in-a-next-js-react-app/hide',
+    upload_lesson_http_url:
+      'https://app.egghead.io/lesson_uploads/new?lesson=next-js-add-and-style-a-grid-of-products-with-images-in-a-next-js-react-app&upload=true',
+    edit_lesson_http_url:
+      'https://app.egghead.io/lessons/next-js-add-and-style-a-grid-of-products-with-images-in-a-next-js-react-app/edit',
+    update_lesson_url:
+      'https://app.egghead.io/api/v1/lessons/next-js-add-and-style-a-grid-of-products-with-images-in-a-next-js-react-app',
+    process_lesson_video_url:
+      'https://app.egghead.io/api/v1/lessons/next-js-add-and-style-a-grid-of-products-with-images-in-a-next-js-react-app/upload',
+    signed_s3_upload_url: 'https://app.egghead.io/api/v1/s3/sign',
+    notifications: [],
+    create_lesson_version_flag_url:
+      'https://app.egghead.io/api/v1/lesson_version_flags',
+    lesson_version_flag_url:
+      'https://app.egghead.io/api/v1/lesson_version_flags/next-js-add-and-style-a-grid-of-products-with-images-in-a-next-js-react-app',
+  },
+]
