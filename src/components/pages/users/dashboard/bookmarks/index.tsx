@@ -34,7 +34,7 @@ const Bookmarks: FunctionComponent<BookmarksProps> = ({viewer}) => {
       {loadingBookmarks || isEmpty(bookmarks) ? (
         <div>
           {loadingBookmarks
-            ? 'loading...'
+            ? 'Loading...'
             : `You haven't bookmarked anything yet.`}
         </div>
       ) : (
