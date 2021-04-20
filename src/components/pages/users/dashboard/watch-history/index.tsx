@@ -83,28 +83,44 @@ const CompletedLesson: FunctionComponent<CompletedLessonProps> = ({
   const image_url = square_cover_480_url || image_128_url
 
   return (
-    <div className="flex w-full items-center md:flex-row md:space-x-3 space-x-2 pb-4 border-b border-gray-200">
-      {image_url && resource_path && (
-        <Link href={resource_path}>
+    <div className="flex w-full items-center flex-row pb-4 border-b border-gray-200 justify-between">
+      <div className="flex md:space-x-3 space-x-2">
+        {image_url && resource_path && (
+          <Link href={resource_path}>
+            <a
+              onClick={() =>
+                track(`clicked completed lesson`, {
+                  slug: slug,
+                  type: type,
+                  location: 'completed lesson (image)',
+                })
+              }
+              tabIndex={-1}
+            >
+              <Image src={image_url} alt={title} width={32} height={32} />
+            </a>
+          </Link>
+        )}
+        <Link href={resource_path || '#'}>
           <a
+            className="dark:hover:text-blue-300 hover:text-blue-600"
             onClick={() =>
               track(`clicked completed lesson`, {
                 slug: slug,
                 type: type,
-                location: 'completed lesson (image)',
+                location: 'completed lesson (title)',
               })
             }
-            tabIndex={-1}
           >
-            <Image src={image_url} alt={title} width={32} height={32} />
+            <h3 className="text-base font-semibold mb-0.5">{title}</h3>
           </a>
         </Link>
-      )}
-      <div className="space-y-1 w-full pl-4">
-        <div className="">
+      </div>
+      <div>
+        {series && (
           <Link href={resource_path || '#'}>
             <a
-              className="dark:hover:text-blue-300 hover:text-blue-600"
+              className="text-coolGray-500 dark:hover:text-blue-300 hover:text-blue-600"
               onClick={() =>
                 track(`clicked completed lesson`, {
                   slug: slug,
@@ -113,15 +129,10 @@ const CompletedLesson: FunctionComponent<CompletedLessonProps> = ({
                 })
               }
             >
-              <h3 className="text-base font-semibold mb-0.5">{title}</h3>
+              <h3 className="text-sm flex items-center">{series?.title}</h3>
             </a>
           </Link>
-          {!isInProgress && series && (
-            <div className="text-sm flex items-center text-coolGray-500">
-              {series?.title}
-            </div>
-          )}
-        </div>
+        )}
       </div>
     </div>
   )
