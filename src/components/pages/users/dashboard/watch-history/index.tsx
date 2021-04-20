@@ -83,7 +83,7 @@ const CompletedLesson: FunctionComponent<CompletedLessonProps> = ({
   const image_url = square_cover_480_url || image_128_url
 
   return (
-    <div className="flex w-full items-center md:flex-row md:space-x-3 space-x-2">
+    <div className="flex w-full items-center md:flex-row md:space-x-3 space-x-2 pb-4 border-b border-gray-200">
       {image_url && resource_path && (
         <Link href={resource_path}>
           <a
