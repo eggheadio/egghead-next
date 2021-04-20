@@ -35,7 +35,7 @@ const Bookmarks: FunctionComponent<BookmarksProps> = ({viewer}) => {
         <div>
           {loadingBookmarks
             ? 'loading...'
-            : `You don't have any content bookmarked to watch later.`}
+            : `You haven't bookmarked anything yet.`}
         </div>
       ) : (
         <ul className="space-y-5">
