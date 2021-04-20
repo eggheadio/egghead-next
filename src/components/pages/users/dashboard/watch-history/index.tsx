@@ -54,10 +54,16 @@ const CompletedLesson: FunctionComponent<CompletedLessonProps> = ({
     progress,
     type,
     path,
+    duration,
+    instructor,
+    instructor_url,
+
     lessons,
     image_128_url,
     items = [],
   } = resource
+
+  console.log(resource)
 
   const definedProgress = resource_progress || progress
 
@@ -83,8 +89,8 @@ const CompletedLesson: FunctionComponent<CompletedLessonProps> = ({
   const image_url = square_cover_480_url || image_128_url
 
   return (
-    <div className="flex w-full items-center flex-row pb-4 border-b border-gray-200 justify-between">
-      <div className="flex md:space-x-3 space-x-2">
+    <div className="grid grid-cols-12 w-full items-center pb-4 border-b border-gray-200">
+      <div className="col-span-6 flex items-center flex-row md:space-x-4 space-x-2">
         {image_url && resource_path && (
           <Link href={resource_path}>
             <a
@@ -116,9 +122,9 @@ const CompletedLesson: FunctionComponent<CompletedLessonProps> = ({
           </a>
         </Link>
       </div>
-      <div>
+      <div className="col-span-3">
         {series && (
-          <Link href={resource_path || '#'}>
+          <Link href={series?.url || '#'}>
             <a
               className="text-coolGray-500 dark:hover:text-blue-300 hover:text-blue-600"
               onClick={() =>
@@ -133,6 +139,24 @@ const CompletedLesson: FunctionComponent<CompletedLessonProps> = ({
             </a>
           </Link>
         )}
+      </div>
+      <div className="col-span-2">
+        <Link href={instructor_url || '#'}>
+          <a
+            className="text-coolGray-700 dark:hover:text-blue-300 hover:text-blue-600"
+            onClick={() =>
+              track(`clicked completed lesson`, {
+                slug: slug,
+                type: type,
+                location: 'completed lesson (title)',
+              })
+            }
+          >
+            <h3 className="text-sm flex items-center">
+              {instructor.full_name}
+            </h3>
+          </a>
+        </Link>
       </div>
     </div>
   )
