@@ -69,7 +69,7 @@
     "client-oauth2": "^4.3.3",
     "cookie": "^0.4.1",
     "cueplayer-react": "^0.3.21",
-    "customerio-node": "^2.1.1",
+    "customerio-node": "^3.0.0",
     "date-fns": "^2.22.1",
     "discord.js": "^12.5.3",
     "facepaint": "^1.2.1",
