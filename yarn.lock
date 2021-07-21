@@ -14792,10 +14792,10 @@ next-themes@^0.0.15:
   resolved "https://registry.yarnpkg.com/next-themes/-/next-themes-0.0.15.tgz#ab0cee69cd763b77d41211f631e108beab39bf7d"
   integrity sha512-LTmtqYi03c4gMTJmWwVK9XkHL7h0/+XrtR970Ujvtu3s0kZNeJN24aJsi4rkZOI8i19+qq6f8j+8Duwy5jqcrQ==
 
-next-transpile-modules@^7.3.0:
-  version "7.3.0"
-  resolved "https://registry.yarnpkg.com/next-transpile-modules/-/next-transpile-modules-7.3.0.tgz#088bfc2baeff7624991d4b510558c7a9d4a82d73"
-  integrity sha512-1iIiXEL/tyqd9LS3ge8nhPLgYByaFxLSBqbaQZZBedTgFVVnULrcdGDBVqWzivkcxDIqBpdeou+FKqo87IUyVw==
+next-transpile-modules@^8.0.0:
+  version "8.0.0"
+  resolved "https://registry.yarnpkg.com/next-transpile-modules/-/next-transpile-modules-8.0.0.tgz#56375cdc25ae5d23a834195f277fc2737b26cb97"
+  integrity sha512-Q2f2yB0zMJ8KJbIYAeZoIxG6cSfVk813zr6B5HzsLMBVcJ3FaF8lKr7WG66n0KlHCwjLSmf/6EkgI6QQVWHrDw==
   dependencies:
     enhanced-resolve "^5.7.0"
     escalade "^3.1.1"
